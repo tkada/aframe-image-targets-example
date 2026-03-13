@@ -6,10 +6,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <title>A-Frame: Image Targets Example</title>
-  <script crossorigin="anonymous" src="./external/scripts/8frame-1.5.0.min.js"></script>
-  <script crossorigin="anonymous" src="./external/xrextras/xrextras.js"></script>
-  <script crossorigin="anonymous" src="./external/landing-page/landing-page.js"></script>
-  <script crossorigin="anonymous" src="./external/xr/xr.js" async="true" data-preload-chunks="slam"></script>
+  <script crossorigin="anonymous" src="../external/scripts/8frame-1.5.0.min.js"></script>
+  <script crossorigin="anonymous" src="../external/xrextras/xrextras.js"></script>
+  <script crossorigin="anonymous" src="../external/landing-page/landing-page.js"></script>
+  <script crossorigin="anonymous" src="../external/xr/xr.js" async="true" data-preload-chunks="slam"></script>
 
   <script>
     const onxrloaded = () => {
@@ -22,9 +22,6 @@
     }
     window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
   </script>
-
-  <!-- Copyright (c) 2024 8th Wall, Inc. -->
-  <!-- head.html is optional; elements will be added to your html head before app.js is loaded. -->
 
   <!-- Use "8thwall:" meta tags to hook into 8th Wall's build process and developer tools. -->
   <meta name="8thwall:renderer" content="aframe:1.5.0" />
@@ -52,13 +49,13 @@
 
     <a-light type="ambient" intensity="1"></a-light>
 
-    <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
+    <!-- Note: "name:" must be set to the name of the image target -->
     <xrextras-named-image-target name="video-target">
       <a-entity xrextras-play-video="video: #jelly-video; thumb: #jelly-thumb; canstop: true"
         geometry="primitive: plane; height: 1; width: 0.79;"></a-entity>
     </xrextras-named-image-target>
 
-    <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
+    <!-- Note: "name:" must be set to the name of the image target  -->
     <xrextras-named-image-target name="model-target">
       <!-- Add a child entity that can be rotated independently of the image target. -->
       <a-entity xrextras-one-finger-rotate gltf-model="#jelly-glb"></a-entity>
