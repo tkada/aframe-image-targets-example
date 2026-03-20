@@ -19,7 +19,11 @@ brew install imagemagick
 Then run this inside src/targets:
 
 ```bash
+# Backup originals
+for f in *.jpg; do cp "$f" "${f%.jpg}-original.jpg"; done
+
+# Process images (modifies only the non -original files)
 mogrify -resize 480x640^ -gravity center -extent 480x640 -colorspace Gray *.jpg
 ```
 
-This resizes all .jpg files to 480×640, center-crops them, converts them to grayscale, and overwrites the originals.
+This keeps a -original.jpg copy of each image, while applying the resize, crop, and grayscale transformation to the working files.

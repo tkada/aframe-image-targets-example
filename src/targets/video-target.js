@@ -8,8 +8,8 @@ const imageTarget = {
     "top": 0,
     "width": 480,
     "height": 640,
-    "originalWidth": 480,
-    "originalHeight": 640,
+    "originalWidth": 980,
+    "originalHeight": 1307,
     "isRotated": false, // set this to true if you rotated the image when you cropped it
   }
 }
