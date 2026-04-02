@@ -1,5 +1,5 @@
 const imageTarget = {
-  "imagePath": "./video-target.jpg",
+  "imagePath": "./targets/video-target.jpg",
   "metadata": {}, // available for custom use cases
   "name": "video-target",
   "type": "PLANAR",
@@ -13,4 +13,4 @@ const imageTarget = {
     "isRotated": false, // set this to true if you rotated the image when you cropped it
   }
 }
-export default imageTarget;
+module.exports = imageTarget;

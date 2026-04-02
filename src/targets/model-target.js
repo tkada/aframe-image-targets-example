@@ -1,5 +1,5 @@
 const imageTarget = {
-  "imagePath": "./model-target.jpg",
+  "imagePath": "./targets/model-target.jpg",
   "metadata": {}, // available for custom use cases
   "name": "model-target",
   "type": "PLANAR",
@@ -13,4 +13,4 @@ const imageTarget = {
     "isRotated": false, // set this to true if you rotated the image when you cropped it
   }
 }
-export default imageTarget;
+module.exports = imageTarget;
