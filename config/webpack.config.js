@@ -1,3 +1,4 @@
+const fs = require('fs')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -41,7 +42,8 @@ const makeSassLoader = () => ({
 
 const makeAssetLoader = () => ({
   test: /\..*$/,
-  include: [path.join(srcPath, 'assets')],
+  include: [path.join(srcPath, 'assets'), path.join(srcPath, 'targets')],
+  exclude: /\.(js|ts)$/,
   loader: path.join(__dirname, 'asset-loader.js'),
 })
 
@@ -101,6 +103,11 @@ const config = {
           to: path.join(distPath, 'image-targets'),
           noErrorOnMissing: true,
         },
+        {
+          from: path.join(srcPath, 'targets'),
+          to: path.join(distPath, 'targets'),
+          noErrorOnMissing: true,
+        },
       ],
     }),
   ],
@@ -122,6 +129,23 @@ const config = {
     compress: true,
     hot: true,
     liveReload: false,
+    static: [
+      {
+        directory: path.join(srcPath, 'targets'),
+        publicPath: '/targets',
+      },
+      {
+        directory: path.join(srcPath, 'assets'),
+        publicPath: '/assets',
+      },
+    ],
+    server: {
+      type: 'https',
+      options: {
+        key: fs.readFileSync(path.join(rootPath, 'key.pem')),
+        cert: fs.readFileSync(path.join(rootPath, 'cert.pem')),
+      },
+    },
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
